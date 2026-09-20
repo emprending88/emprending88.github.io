@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Doce estrategias para invertir y emprender — Edición 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F1EEE4;
+    --bg-panel: #FBFAF5;
+    --bg-dark: #10181F;
+    --bg-dark-2: #16212A;
+    --ink: #12181D;
+    --ink-soft: #545F5A;
+    --ink-faint: #85897F;
+    --gold: #93691C;
+    --gold-strong: #7A5514;
+    --teal: #1B6552;
+    --rose: #93412F;
+    --line: #D9D2BF;
+    --line-dark: #2A3540;
+    --on-dark: #EFE9DA;
+    --on-dark-soft: #9FADA6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0E1419;
+      --bg-panel: #161F26;
+      --bg-dark: #0A0F13;
+      --bg-dark-2: #0F171D;
+      --ink: #EFE9DA;
+      --ink-soft: #A7B1AB;
+      --ink-faint: #6E7A73;
+      --gold: #D6AC5C;
+      --gold-strong: #E7C077;
+      --teal: #4FA98D;
+      --rose: #CE8874;
+      --line: #263038;
+      --line-dark: #263038;
+      --on-dark: #EFE9DA;
+      --on-dark-soft: #9FADA6;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0E1419; --bg-panel: #161F26; --bg-dark: #0A0F13; --bg-dark-2: #0F171D;
+    --ink: #EFE9DA; --ink-soft: #A7B1AB; --ink-faint: #6E7A73;
+    --gold: #D6AC5C; --gold-strong: #E7C077; --teal: #4FA98D; --rose: #CE8874;
+    --line: #263038; --line-dark: #263038; --on-dark: #EFE9DA; --on-dark-soft: #9FADA6;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 108px; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.65;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  h1, h2, h3, .serif { font-family: 'Fraunces', Georgia, serif; }
+  a { color: inherit; }
+  .wrap { max-width: 760px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+  .wrap-wide { max-width: 900px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+
+  /* progress bar */
+  #progress {
+    position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+    background: linear-gradient(90deg, var(--teal), var(--gold));
+    z-index: 40; transition: width 0.08s linear;
+  }
+
+  /* nav */
+  .navbar {
+    position: sticky; top: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    z-index: 30;
+    padding-top: calc(3px + env(safe-area-inset-top, 0px));
+  }
+  .navbar-scroll { overflow-x: auto; scrollbar-width: none; }
+  .navbar-scroll::-webkit-scrollbar { display: none; }
+  .navbar-inner { display: inline-flex; gap: 2px; padding: 0 16px; white-space: nowrap; }
+  .navbar a {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 34px; height: 44px; padding: 0 8px;
+    font-size: 13px; font-weight: 600; text-decoration: none;
+    color: var(--ink-faint); border-bottom: 2px solid transparent;
+  }
+  .navbar a.active, .navbar a:hover { color: var(--gold-strong); border-bottom-color: var(--gold); }
+
+  /* hero */
+  .hero { background: var(--bg-dark); color: var(--on-dark); }
+  .hero-inner { max-width: 760px; margin: 0 auto; padding: 64px 24px 40px; }
+  .kicker { font-size: 14px; color: var(--on-dark-soft); font-style: italic; font-family: 'Fraunces', serif; margin: 0 0 18px; }
+  .hero h1 { font-size: clamp(34px, 6vw, 56px); font-weight: 600; line-height: 1.1; margin: 0 0 22px; }
+  .hero p.lede { font-size: 18px; color: var(--on-dark-soft); max-width: 580px; margin: 0 0 32px; }
+  .stat-row { display: flex; flex-wrap: wrap; gap: 28px; border-top: 1px solid var(--line-dark); padding-top: 22px; }
+  .stat-row .stat b { display: block; font-family: 'Fraunces', serif; font-size: 22px; font-weight: 600; color: var(--gold-strong); }
+  .stat-row .stat span { font-size: 12.5px; color: var(--on-dark-soft); }
+
+  /* ticker */
+  .ticker-wrap { border-top: 1px solid var(--line-dark); overflow: hidden; background: var(--bg-dark-2); }
+  .ticker-track { display: flex; width: max-content; animation: scroll-left 42s linear infinite; }
+  @media (prefers-reduced-motion: reduce) { .ticker-track { animation: none; } }
+  @keyframes scroll-left { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .ticker-item { padding: 12px 22px; font-size: 13px; color: var(--on-dark-soft); white-space: nowrap; border-right: 1px solid var(--line-dark); }
+  .ticker-item em { color: var(--gold-strong); font-style: normal; font-weight: 600; }
+
+  /* principles */
+  .principles { padding: 52px 0 56px; border-bottom: 1px solid var(--line); }
+  .principles h2 { font-size: 22px; font-weight: 600; margin: 0 0 28px; }
+  .principle-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+  @media (max-width: 800px) { .principle-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .principle-grid { grid-template-columns: 1fr; } }
+  .principle { padding: 4px 20px 4px 0; border-left: 1px solid var(--line); padding-left: 20px; }
+  .principle:first-child { border-left: none; padding-left: 0; }
+  @media (max-width: 480px) { .principle { border-left: none; border-top: 1px solid var(--line); padding: 18px 0 0; } .principle:first-child { border-top: none; padding-top: 0; } }
+  .principle .n { font-family: 'Fraunces', serif; color: var(--gold); font-size: 15px; font-weight: 600; }
+  .principle h3 { font-size: 15.5px; font-weight: 600; margin: 6px 0 8px; }
+  .principle p { font-size: 14px; color: var(--ink-soft); margin: 0; }
+
+  /* comparison table */
+  .table-section { padding: 52px 0 56px; border-bottom: 1px solid var(--line); }
+  .table-section h2 { font-size: 22px; font-weight: 600; margin: 0 0 8px; }
+  .table-section .sub { font-size: 14.5px; color: var(--ink-soft); margin: 0 0 26px; }
+  table.compare { width: 100%; border-collapse: collapse; font-size: 14px; }
+  table.compare th { text-align: left; font-weight: 600; font-size: 12.5px; color: var(--ink-faint); padding: 0 12px 10px 0; border-bottom: 1px solid var(--ink); }
+  table.compare td { padding: 12px 12px 12px 0; border-bottom: 1px solid var(--line); vertical-align: middle; }
+  table.compare tr td:first-child { color: var(--gold-strong); font-family: 'Fraunces', serif; font-weight: 600; width: 26px; }
+  table.compare tr:hover td { background: var(--bg-panel); }
+  table.compare a { text-decoration: none; font-weight: 600; }
+  table.compare a:hover { color: var(--gold-strong); }
+  .risk-dots { display: inline-flex; gap: 3px; vertical-align: middle; }
+  .risk-dots span { width: 6px; height: 6px; border-radius: 50%; background: var(--line); }
+  .risk-dots span.on { background: var(--current-risk-color, var(--gold)); }
+  .tcell-hide-mobile { }
+  @media (max-width: 620px) { .tcell-hide-mobile { display: none; } }
+
+  /* entries */
+  section.entry { padding: 64px 0; border-bottom: 1px solid var(--line); }
+  section.entry.tint { background: var(--bg-panel); }
+  .entry-head { display: flex; gap: 22px; align-items: flex-start; margin-bottom: 6px; }
+  .entry-num { font-family: 'Fraunces', serif; font-weight: 600; font-size: 46px; color: var(--gold); line-height: 1; flex: 0 0 auto; }
+  .entry-titles h2 { font-size: clamp(23px, 4vw, 30px); font-weight: 600; margin: 0 0 6px; line-height: 1.2; }
+  .entry-titles .thesis { font-family: 'Fraunces', serif; font-style: italic; font-size: 16.5px; color: var(--ink-soft); margin: 0; }
+
+  .meta-strip { display: flex; flex-wrap: wrap; gap: 0; margin: 28px 0 30px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .meta-block { flex: 1 1 180px; padding: 14px 20px 14px 0; border-right: 1px solid var(--line); }
+  .meta-block:last-child { border-right: none; }
+  @media (max-width: 620px) { .meta-block { flex: 1 1 45%; border-right: none; border-bottom: 1px solid var(--line); } }
+  .meta-label { font-size: 11.5px; color: var(--ink-faint); text-transform: none; margin-bottom: 6px; }
+  .meta-value { font-size: 14.5px; font-weight: 600; }
+
+  .entry-body h3.subhead { font-size: 13px; font-weight: 700; color: var(--ink-faint); margin: 28px 0 12px; letter-spacing: 0.01em; }
+  .entry-body h3.subhead:first-child { margin-top: 0; }
+  .why-text { font-size: 16px; color: var(--ink); max-width: 66ch; }
+  ol.steps { margin: 0; padding: 0; list-style: none; counter-reset: step; }
+  ol.steps li { counter-increment: step; display: flex; gap: 14px; padding: 10px 0; border-top: 1px solid var(--line); font-size: 15px; }
+  ol.steps li:first-child { border-top: none; }
+  ol.steps li::before { content: counter(step); font-family: 'Fraunces', serif; font-weight: 600; color: var(--gold); flex: 0 0 20px; }
+  .tools-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; }
+  @media (max-width: 700px) { .tools-grid { grid-template-columns: 1fr; } }
+  .tool { padding: 4px 18px 4px 0; border-left: 1px solid var(--line); padding-left: 18px; }
+  .tool:first-child { border-left: none; padding-left: 0; }
+  @media (max-width: 700px) { .tool { border-left: none; border-top: 1px solid var(--line); padding: 14px 0 0; margin-top: 14px; } .tool:first-child { border-top: none; margin-top: 0; padding-top: 0; } }
+  .tool .tname { font-weight: 700; font-size: 14.5px; margin-bottom: 5px; }
+  .tool .tblurb { font-size: 13.5px; color: var(--ink-soft); }
+  .first-step { margin-top: 30px; padding: 20px 22px; border-left: 3px solid var(--gold); background: var(--bg-panel); }
+  section.entry.tint .first-step { background: var(--bg); }
+  .first-step .fs-label { font-size: 11.5px; font-weight: 700; color: var(--gold-strong); margin-bottom: 6px; }
+  .first-step p { margin: 0; font-size: 15px; }
+
+  /* closing */
+  .closing { padding: 60px 0 20px; }
+  .closing h2 { font-size: 24px; font-weight: 600; margin: 0 0 16px; }
+  .closing p { font-size: 15.5px; color: var(--ink-soft); max-width: 64ch; }
+  .closing ul { padding-left: 20px; font-size: 15px; }
+  .closing ul li { margin-bottom: 8px; }
+
+  footer { padding: 40px 0 64px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 18px; margin-bottom: 26px; font-size: 13px; color: var(--ink-soft); align-items: center; }
+  .legend .risk-dots span { width: 7px; height: 7px; }
+  footer .disclaimer { font-size: 13.5px; color: var(--ink-faint); border-top: 1px solid var(--line); padding-top: 24px; }
+  footer .disclaimer strong { color: var(--ink-soft); }
+
+  :focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<nav class="navbar" aria-label="Índice de estrategias">
+  <div class="navbar-scroll"><div class="navbar-inner" id="navlinks">
+    <a href="#top" data-nav="top">Inicio</a>
+  </div></div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <p class="kicker">Actualizado — las mejores formas de empezar desde hoy</p>
+    <h1>Doce estrategias para poner tu dinero y tu tiempo a trabajar</h1>
+    <p class="lede">Una guía de referencia, con datos concretos, herramientas y el primer paso exacto para empezar — pensada para quienes están listos para dejar de posponer y dar el primer paso, con la seriedad que merece una decisión sobre tu dinero.</p>
+    <div class="stat-row">
+      <div class="stat"><b>12</b><span>estrategias analizadas</span></div>
+      <div class="stat"><b>0€</b><span>capital mínimo en varias de ellas</span></div>
+      <div class="stat"><b>60</b><span>herramientas y pasos concretos</span></div>
+    </div>
+  </div>
+  <div class="ticker-wrap">
+    <div class="ticker-track" id="ticker"></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <section class="principles">
+    <h2>Cuatro principios antes de empezar</h2>
+    <div class="principle-grid">
+      <div class="principle"><div class="n">01</div><h3>Diversifica siempre</h3><p>Ninguna estrategia de esta lista debería concentrar todo tu capital. Repartir entre varias reduce el impacto si una de ellas no sale como esperabas.</p></div>
+      <div class="principle"><div class="n">02</div><h3>Solo arriesga lo que puedes perder</h3><p>Antes de invertir un euro, ten cubierto un fondo de emergencia de varios meses de gastos aparte.</p></div>
+      <div class="principle"><div class="n">03</div><h3>El horizonte cambia la decisión</h3><p>Lo que tiene sentido para dinero que no tocarás en diez años no sirve para el que necesitarás el próximo trimestre.</p></div>
+      <div class="principle"><div class="n">04</div><h3>Empezar pequeño es empezar</h3><p>El primer euro invertido o el primer cliente conseguido importan más que el plan perfecto que nunca ejecutas.</p></div>
+    </div>
+  </section>
+
+  <section class="table-section">
+    <h2>Panorama comparativo</h2>
+    <p class="sub">Un vistazo rápido a las doce estrategias antes de entrar en el detalle de cada una.</p>
+    <table class="compare">
+      <thead><tr><th></th><th>Estrategia</th><th>Riesgo</th><th class="tcell-hide-mobile">Horizonte</th><th>Capital inicial</th></tr></thead>
+      <tbody id="compare-body"></tbody>
+    </table>
+  </section>
+</div>
+
+<div id="entries"></div>
+
+<div class="wrap">
+  <section class="closing">
+    <h2>Cómo elegir por dónde empezar</h2>
+    <p>No necesitas elegir una sola. La mayoría de las personas que construyen patrimonio a largo plazo combinan al menos dos pilares: algo de inversión pasiva y constante (fondos indexados, cuentas remuneradas) junto con una fuente activa de ingresos que puedan escalar con su propio esfuerzo (un servicio, un negocio digital, contenido propio).</p>
+    <ul>
+      <li>Si tienes poco tiempo libre pero algo de capital: prioriza las estrategias de inversión pasiva (1, 2, 3).</li>
+      <li>Si tienes tiempo pero poco capital: prioriza las de emprendimiento con barrera de entrada baja (7, 9, 10, 12).</li>
+      <li>Si buscas ingresos a largo plazo sin gestión activa diaria: combina fondos indexados con crowdfunding inmobiliario.</li>
+      <li>Empieza por una sola estrategia, no por tres a la vez — el enfoque importa más que la cantidad.</li>
+    </ul>
+  </section>
+
+  <footer>
+    <div class="legend">
+      <span><span class="risk-dots"><span class="on" style="--current-risk-color:var(--teal)"></span><span></span><span></span></span> Riesgo bajo</span>
+      <span><span class="risk-dots"><span class="on" style="--current-risk-color:var(--gold)"></span><span class="on" style="--current-risk-color:var(--gold)"></span><span></span></span> Riesgo medio</span>
+      <span><span class="risk-dots"><span class="on" style="--current-risk-color:var(--rose)"></span><span class="on" style="--current-risk-color:var(--rose)"></span><span class="on" style="--current-risk-color:var(--rose)"></span></span> Riesgo alto</span>
+    </div>
+    <p class="disclaimer"><strong>Sobre esta guía:</strong> el contenido refleja el panorama general disponible a septiembre de 2026 y tiene fines educativos e informativos. No constituye asesoría financiera, fiscal ni legal personalizada, ni una recomendación de compra de ningún activo o servicio concreto. Toda inversión conlleva riesgo, incluida la posible pérdida parcial o total del capital — de forma más acusada en activos volátiles como las criptomonedas. Antes de invertir o iniciar un negocio, valora tu propia situación financiera y, ante cualquier duda, consulta con un profesional cualificado.</p>
+  </footer>
+</div>
+
+<script>
+const DATA = [
+  {
+    title: "Fondos indexados y ETFs",
+    thesis: "Dejar que el mercado en su conjunto trabaje para ti, en vez de apostar por una sola empresa.",
+    riskTier: 1, riskLabel: "Bajo–medio",
+    horizon: "Largo plazo (7+ años)",
+    budget: "Desde 20–50 €/mes",
+    why: "Un fondo indexado no intenta adivinar qué acción va a subir mañana: compra un pequeño trozo de cientos o miles de empresas a la vez, así que tu resultado depende del rumbo general de la economía y no de una sola apuesta. Es la estrategia con más evidencia histórica detrás para el ahorro a largo plazo, precisamente porque elimina la necesidad de acertar el momento perfecto de entrada — el tiempo dentro del mercado importa más que intentar cronometrarlo.",
+    steps: [
+      "Abre una cuenta en un bróker regulado en tu país y verifica tu identidad.",
+      "Decide qué porcentaje fijo de tus ingresos vas a destinar cada mes, por pequeño que sea al principio.",
+      "Elige uno o dos fondos indexados globales con comisiones de gestión bajas (compara el TER antes de decidir).",
+      "Configura una orden de compra periódica automática para no depender de acordarte cada mes.",
+      "Revisa tu cartera una vez al trimestre, no cada día — la paciencia es parte de la estrategia, no un extra opcional."
+    ],
+    tools: [
+      {n: "Bróker regulado con fondos indexados", b: "Busca comisiones de gestión (TER) por debajo del 0,3% anual."},
+      {n: "Simulador de interés compuesto", b: "Muestra visualmente el efecto de aportar de forma constante durante años."},
+      {n: "App de seguimiento de cartera", b: "Para revisar la evolución sin depender de entrar al bróker cada vez."}
+    ],
+    firstStep: "Hoy: abre la cuenta en el bróker y programa tu primera aportación automática, aunque sean solo 20 €."
+  },
+  {
+    title: "Cuentas remuneradas y depósitos",
+    thesis: "El lugar donde debería vivir el dinero que no puedes permitirte perder.",
+    riskTier: 1, riskLabel: "Muy bajo",
+    horizon: "Corto plazo (0–2 años)",
+    budget: "Sin mínimo",
+    why: "Antes de arriesgar nada, necesitas un colchón que puedas tocar sin penalización cuando la vida lo exija. Las cuentas remuneradas y los depósitos a plazo fijo no te van a hacer rico, pero cumplen una función que ninguna otra estrategia de esta lista cumple: liquidez y seguridad casi total mientras generas algo de interés en vez de dejar el dinero parado sin rentabilidad alguna.",
+    steps: [
+      "Calcula cuántos meses de gastos fijos quieres tener cubiertos antes de invertir en algo más volátil.",
+      "Compara la TAE real entre varios bancos digitales, no solo el banco donde ya tienes cuenta.",
+      "Si usas depósitos a plazo, escalona los vencimientos en vez de bloquear todo el capital a la vez.",
+      "Automatiza una transferencia mensual fija hacia esta cuenta antes de gastar en cualquier otra cosa.",
+      "Revisa la TAE cada seis meses: las condiciones cambian y cambiar de banco no cuesta nada."
+    ],
+    tools: [
+      {n: "Comparador de cuentas remuneradas", b: "Te permite ordenar por TAE real, no por la oferta de bienvenida."},
+      {n: "App del banco digital elegido", b: "Prioriza una con transferencias inmediatas y sin comisiones de mantenimiento."},
+      {n: "Hoja de cálculo de gastos fijos", b: "Para saber exactamente cuántos meses de colchón necesitas."}
+    ],
+    firstStep: "Hoy: calcula tu gasto mensual fijo y abre la cuenta remunerada con mejor TAE disponible en tu país."
+  },
+  {
+    title: "Acciones fraccionadas",
+    thesis: "Diversificar entre varias empresas concretas sin necesitar miles de euros de golpe.",
+    riskTier: 2, riskLabel: "Medio",
+    horizon: "Medio a largo plazo (3+ años)",
+    budget: "Desde 1–10 € por operación",
+    why: "Comprar una fracción de una acción cara —de esas que cuestan varios cientos de euros la unidad— te permite construir una cartera diversificada entre distintas empresas incluso con poco capital, en vez de tener que ahorrar meses para comprar una sola acción completa. A cambio de esa flexibilidad, asumes más riesgo que con un fondo indexado, porque el resultado depende del desempeño de empresas concretas y no del mercado en su conjunto.",
+    steps: [
+      "Investiga los fundamentos de cada empresa —ingresos, deuda, sector— antes de comprar, no solo el titular de una noticia.",
+      "Decide de antemano cuánto vas a destinar por posición y respétalo, incluso cuando una acción esté de moda.",
+      "Evita concentrar todo el capital en una sola empresa o sector, por convencido que estés de su potencial.",
+      "Registra por escrito por qué compraste cada posición, para poder revisar tu propio criterio más adelante.",
+      "Revisa la cartera trimestralmente en vez de reaccionar a cada movimiento diario del precio."
+    ],
+    tools: [
+      {n: "App de bróker con acciones fraccionadas", b: "Verifica que esté regulada y que muestre comisiones con claridad."},
+      {n: "Fuente de informes financieros de empresas", b: "Para leer resultados trimestrales antes de decidir."},
+      {n: "Hoja de seguimiento de cartera", b: "Anota fecha, precio y motivo de cada compra."}
+    ],
+    firstStep: "Esta semana: elige una sola empresa que conozcas bien como consumidor y compra tu primera fracción."
+  },
+  {
+    title: "Crowdfunding inmobiliario",
+    thesis: "Acceder al ladrillo sin comprar un piso entero ni gestionar un inquilino.",
+    riskTier: 2, riskLabel: "Medio",
+    horizon: "Medio plazo (2–5 años)",
+    budget: "Desde 50–500 € por proyecto",
+    why: "Plataformas digitales reparten el capital de un proyecto inmobiliario concreto —una promoción, una reforma para alquilar— entre muchos inversores pequeños. Accedes a un sector tradicionalmente reservado a quien tiene mucho capital, pero a cambio tu dinero suele quedar comprometido durante el plazo del proyecto, con menos liquidez que una acción que puedes vender cualquier día.",
+    steps: [
+      "Revisa el historial de la plataforma: cuántos proyectos ha completado y con qué resultados reales.",
+      "Lee las condiciones del proyecto concreto, no solo el resumen: plazo, tipo de retorno, qué pasa si se retrasa.",
+      "Reparte montos pequeños entre 2 o 3 proyectos distintos en vez de todo tu capital en uno solo.",
+      "Confirma si la plataforma está regulada en tu país y qué protección tienes como inversor.",
+      "Apunta en un calendario la fecha estimada de finalización de cada proyecto para planificar tu liquidez."
+    ],
+    tools: [
+      {n: "Plataforma de crowdfunding inmobiliario regulada", b: "Verifica el regulador financiero de tu país en su web."},
+      {n: "Calculadora de rentabilidad neta", b: "Para comparar el retorno estimado descontando comisiones."},
+      {n: "Foro o comunidad de inversores", b: "Útil para leer experiencias reales antes de decidir."}
+    ],
+    firstStep: "Esta semana: elige una plataforma regulada y entra con el monto mínimo en un único proyecto para conocer el proceso."
+  },
+  {
+    title: "Comprar un inmueble para alquilar",
+    thesis: "La vía más tradicional de generar ingresos pasivos — y la que más capital y gestión exige.",
+    riskTier: 2, riskLabel: "Medio–alto",
+    horizon: "Muy largo plazo (10+ años)",
+    budget: "Desde varias decenas de miles de €",
+    why: "Comprar un inmueble para alquilarlo sigue siendo, para muchas personas, la inversión más tangible que existe. Pero exige más capital inicial que cualquier otra estrategia de esta lista, además de análisis de zona, gestión del inquilino y capacidad de asumir gastos imprevistos de mantenimiento. La rentabilidad real casi siempre es menor de lo que parece a primera vista, una vez descontados impuestos, comunidad y periodos vacíos sin inquilino.",
+    steps: [
+      "Calcula la rentabilidad neta real: alquiler menos impuestos, comunidad, mantenimiento y periodos sin inquilino.",
+      "Investiga la zona a fondo — demanda de alquiler, evolución de precios, proyectos urbanísticos previstos.",
+      "Compara financiación hipotecaria de varios bancos antes de comprometerte con el primero.",
+      "Decide si vas a gestionar tú el alquiler o vas a contratar una administración, y súmalo al cálculo de rentabilidad.",
+      "Ten un fondo aparte para reparaciones imprevistas — no forma parte opcional del presupuesto."
+    ],
+    tools: [
+      {n: "Portal inmobiliario con histórico de precios por zona", b: "Para comparar antes de fijar tu oferta."},
+      {n: "Calculadora de rentabilidad de alquiler", b: "Incluye todos los gastos, no solo el alquiler bruto."},
+      {n: "Gestor de alquiler o plataforma de gestión", b: "Si no vas a administrar el inmueble tú mismo."}
+    ],
+    firstStep: "Este mes: calcula la rentabilidad neta real de tres inmuebles concretos en tu zona antes de visitar ninguno."
+  },
+  {
+    title: "Criptomonedas",
+    thesis: "Un activo de alta volatilidad que, en dosis pequeñas, puede tener un lugar en una cartera diversificada.",
+    riskTier: 3, riskLabel: "Alto",
+    horizon: "Variable — solo capital que puedas inmovilizar",
+    budget: "Desde 10 €",
+    why: "Las criptomonedas pueden moverse un 20% o más en un solo día, en cualquier dirección. Eso significa que nunca deberían ser la base de tus ahorros ni sustituir a un fondo de emergencia o una inversión indexada. Como pieza pequeña y consciente dentro de una cartera diversificada, algunas personas las usan para exponerse a un activo distinto a la bolsa o el ladrillo — siempre entendiendo que la pérdida total del capital destinado es un escenario real, no hipotético.",
+    steps: [
+      "Destina únicamente una cantidad que puedas permitirte perder por completo sin afectar tu vida diaria.",
+      "Prioriza los activos de mayor capitalización y trayectoria antes que proyectos nuevos sin historial.",
+      "Usa siempre un exchange regulado y activa la autenticación en dos pasos desde el primer día.",
+      "Si vas a mantener una posición a largo plazo, considera retirar el capital del exchange a una wallet propia.",
+      "Evita revisar el precio a diario — la volatilidad diaria no debería dictar tus decisiones."
+    ],
+    tools: [
+      {n: "Exchange regulado en tu país", b: "Confirma qué licencia o registro tiene antes de depositar nada."},
+      {n: "Wallet con custodia propia", b: "Para el capital que quieras conservar fuera del exchange."},
+      {n: "Fuente de noticias regulatorias del sector", b: "El marco legal cambia con frecuencia y afecta directamente al riesgo."}
+    ],
+    firstStep: "Antes de comprar: escribe qué porcentaje máximo de tu patrimonio total estás dispuesto a destinar, y no lo superes."
+  },
+  {
+    title: "Dropshipping y e-commerce",
+    thesis: "Vender productos sin mantener inventario propio — el proveedor envía directo al cliente.",
+    riskTier: 2, riskLabel: "Medio",
+    horizon: "Corto a medio plazo (resultados en meses)",
+    budget: "Desde 200–500 €",
+    why: "El atractivo del dropshipping es que puedes probar si un producto vende antes de comprometer capital en inventario. El riesgo real no está tanto en el modelo como en subestimarlo: la mayoría de tiendas fracasan por elegir un nicho demasiado amplio, no validar la demanda antes de invertir en anuncios, o descuidar los tiempos de envío, que suelen ser el mayor punto de fricción con el cliente final.",
+    steps: [
+      "Elige un nicho concreto y específico, no una tienda genérica que vende de todo un poco.",
+      "Valida la demanda con una campaña de anuncios pequeña antes de invertir en desarrollo grande de marca.",
+      "Negocia con proveedores que ofrezcan tiempos de envío razonables — es tu principal fuente de reclamos.",
+      "Define tu margen real descontando publicidad, comisiones de pasarela de pago y devoluciones.",
+      "Reinvierte solo cuando tengas datos reales de conversión, no proyecciones optimistas."
+    ],
+    tools: [
+      {n: "Shopify o WooCommerce", b: "Para montar la tienda sin necesitar desarrollo a medida."},
+      {n: "Directorio de proveedores de dropshipping", b: "Compara tiempos de envío antes de elegir catálogo."},
+      {n: "Gestor de campañas en redes sociales", b: "Para validar demanda con presupuesto reducido antes de escalar."}
+    ],
+    firstStep: "Esta semana: elige un nicho concreto y lanza una campaña de validación con 50–100 € de presupuesto."
+  },
+  {
+    title: "Print on demand",
+    thesis: "Productos con diseño propio, impresos y enviados solo cuando alguien compra.",
+    riskTier: 1, riskLabel: "Bajo",
+    horizon: "Corto a medio plazo",
+    budget: "Desde 0–100 €",
+    why: "A diferencia del dropshipping de catálogo genérico, aquí el producto lleva tu diseño, lo que te da margen para construir marca propia. No necesitas invertir en stock inicial ni en máquinas de impresión: la plataforma imprime y envía cuando llega el pedido. El reto no es técnico sino creativo y de distribución — encontrar un diseño y una audiencia que realmente conecten.",
+    steps: [
+      "Crea diseños propios y originales — nunca uses propiedad intelectual ajena sin licencia explícita.",
+      "Sube los diseños a una plataforma de impresión bajo demanda conectada a tu tienda.",
+      "Promociona en la red social donde ya esté tu público objetivo, no en todas a la vez.",
+      "Empieza con 3 a 5 diseños, no veinte — es más fácil medir qué funciona con un catálogo pequeño.",
+      "Reinvierte en los diseños que mejor conviertan y retira los que no generan ventas tras un mes."
+    ],
+    tools: [
+      {n: "Plataforma de impresión bajo demanda", b: "Conectada directamente a Shopify o Etsy."},
+      {n: "Herramienta de diseño gráfico", b: "Para crear las artes sin depender de un diseñador externo al inicio."},
+      {n: "Etsy o marketplace de nicho", b: "Buen punto de partida para validar sin construir una tienda propia todavía."}
+    ],
+    firstStep: "Hoy: diseña tu primera pieza y súbela a una plataforma de impresión bajo demanda conectada a un marketplace."
+  },
+  {
+    title: "Consultoría o automatización con IA",
+    thesis: "Vender a pequeños negocios lo que tú ya sabes hacer con herramientas de inteligencia artificial.",
+    riskTier: 1, riskLabel: "Bajo",
+    horizon: "Corto plazo (resultados en semanas)",
+    budget: "Desde 0–50 €/mes en herramientas",
+    why: "Muchos pequeños negocios saben que deberían automatizar tareas repetitivas o usar IA en su día a día, pero no tienen el tiempo ni el conocimiento para hacerlo. Si tú ya dominas dos o tres herramientas a fondo, puedes ofrecer ese conocimiento como servicio con una inversión mínima: la barrera de entrada es principalmente el tiempo que dediques a aprender bien las herramientas antes de venderlas.",
+    steps: [
+      "Domina a fondo dos o tres herramientas de IA o automatización antes de ofrecerlas como servicio.",
+      "Identifica un problema concreto y frecuente en un tipo de negocio que conozcas bien.",
+      "Ofrece un primer proyecto piloto a precio reducido para conseguir un caso de éxito documentado.",
+      "Define paquetes de servicio cerrados con entregables claros, en vez de cobrar por hora.",
+      "Pide una reseña o testimonio a cada cliente satisfecho — es tu principal forma de conseguir el siguiente."
+    ],
+    tools: [
+      {n: "Plataforma de automatización sin código", b: "Para conectar herramientas sin necesitar programación."},
+      {n: "Asistente de IA para análisis y redacción", b: "Domínalo a fondo antes de venderlo como parte de tu servicio."},
+      {n: "Plantilla de propuesta de servicio", b: "Para presentar paquetes con precios claros desde el primer contacto."}
+    ],
+    firstStep: "Esta semana: ofrece un proyecto piloto gratuito o a precio reducido a un negocio que ya conozcas."
+  },
+  {
+    title: "Freelancing y servicios digitales",
+    thesis: "Tu habilidad concreta, vendida por proyecto, sin necesidad de montar una empresa.",
+    riskTier: 1, riskLabel: "Bajo",
+    horizon: "Corto plazo (resultados en semanas)",
+    budget: "Casi sin inversión inicial",
+    why: "Redacción, diseño, programación, marketing o edición: si ya tienes una habilidad que otros necesitan, el freelancing es la estrategia con menor barrera de entrada de toda esta lista. El reto no suele ser conseguir el primer cliente, sino evitar quedarte atrapado cobrando por hora en vez de por resultado, y construir un nicho reconocible en vez de ofrecer de todo un poco.",
+    steps: [
+      "Construye un portafolio con 3 a 5 muestras de trabajo, aunque al principio sean proyectos propios.",
+      "Define un nicho claro y específico en vez de presentarte como alguien que 'hace de todo'.",
+      "Fija tarifas por proyecto o por entregable en vez de por hora, lo antes que puedas.",
+      "Pide siempre una referencia o testimonio al cerrar cada proyecto, incluso los pequeños.",
+      "Reserva parte de cada ingreso para impuestos desde el primer cobro, no al final del año."
+    ],
+    tools: [
+      {n: "Plataforma de trabajo freelance", b: "Buen punto de partida para los primeros clientes mientras construyes reputación propia."},
+      {n: "Portafolio propio", b: "Una sola página con tus mejores 3-5 trabajos basta para empezar."},
+      {n: "Herramienta de facturación para autónomos", b: "Para llevar el control desde el primer cobro."}
+    ],
+    firstStep: "Hoy: publica tu portafolio con tres muestras de trabajo y contacta a un cliente potencial concreto."
+  },
+  {
+    title: "Creación de contenido",
+    thesis: "Construir audiencia alrededor de un tema y monetizarla después, no antes.",
+    riskTier: 1, riskLabel: "Bajo",
+    horizon: "Medio plazo (6-18 meses hasta monetizar)",
+    budget: "Desde 0–300 € en equipo básico",
+    why: "Vídeo, newsletter o pódcast: el formato importa menos que la constancia. La mayoría de creadores fracasan no por falta de talento sino por abandonar antes de construir una audiencia mínima, o por intentar monetizar demasiado pronto. Es de las estrategias con resultados más lentos de esta lista, pero también de las que más se benefician de no depender de una sola plataforma ni de un solo cliente.",
+    steps: [
+      "Elige un tema lo bastante específico como para sostener contenido constante durante meses.",
+      "Publica con una frecuencia sostenible que puedas mantener incluso en semanas ocupadas.",
+      "No pienses en monetizar hasta tener una base de audiencia real y comprometida.",
+      "Diversifica tus canales desde el principio — no dependas de una sola plataforma para llegar a tu público.",
+      "Cuando monetices, prueba varias vías (publicidad, patrocinios, producto propio) en vez de una sola."
+    ],
+    tools: [
+      {n: "Plataforma de newsletter", b: "Buena opción para ser dueño de tu lista de contactos desde el inicio."},
+      {n: "Herramienta de edición de vídeo o audio", b: "Empieza con la más sencilla, no la más completa."},
+      {n: "Herramienta de gestión de comunidad", b: "Útil una vez que la audiencia empiece a interactuar de forma activa."}
+    ],
+    firstStep: "Esta semana: publica tu primera pieza de contenido y comprométete a un calendario fijo durante un mes."
+  },
+  {
+    title: "Micro-SaaS sin código",
+    thesis: "Una herramienta digital pequeña que resuelve un problema real para un nicho concreto.",
+    riskTier: 2, riskLabel: "Medio",
+    horizon: "Corto a medio plazo",
+    budget: "Desde 0–50 €/mes",
+    why: "Las plataformas de creación de apps con IA han bajado radicalmente la barrera técnica para construir una herramienta digital propia. Ya no necesitas saber programar para lanzar un producto que resuelva un problema específico para un grupo concreto de personas. El riesgo principal no es técnico sino de validación: construir algo que nadie necesita antes de comprobar si alguien pagaría por ello.",
+    steps: [
+      "Parte de un problema real que hayas visto de cerca, idealmente uno que tú mismo hayas sufrido.",
+      "Construye una primera versión mínima con una plataforma de creación de apps sin código.",
+      "Consigue que 5 a 10 personas reales lo prueben antes de seguir añadiendo funciones.",
+      "Empieza a cobrar desde el primer usuario dispuesto a pagar, en vez de regalarlo indefinidamente.",
+      "Prioriza corregir lo que tus primeros usuarios piden antes de construir funciones que crees que necesitan."
+    ],
+    tools: [
+      {n: "Plataforma de creación de apps con IA", b: "Genera el producto a partir de una descripción, sin programar."},
+      {n: "Pasarela de pago para suscripciones", b: "Para cobrar desde el primer usuario sin fricción."},
+      {n: "Herramienta de feedback de usuarios", b: "Un formulario simple basta para las primeras decenas de usuarios."}
+    ],
+    firstStep: "Esta semana: describe el problema que quieres resolver en una sola frase y constrúyelo con una plataforma sin código."
+  }
+];
+
+function riskColor(tier) { return tier === 1 ? 'var(--teal)' : tier === 2 ? 'var(--gold)' : 'var(--rose)'; }
+function riskDots(tier) {
+  let out = '<span class="risk-dots">';
+  for (let i = 1; i <= 3; i++) {
+    out += i <= tier ? `<span class="on" style="--current-risk-color:${riskColor(tier)}"></span>` : '<span></span>';
+  }
+  return out + '</span>';
+}
+
+const navlinks = document.getElementById('navlinks');
+const compareBody = document.getElementById('compare-body');
+const entriesRoot = document.getElementById('entries');
+const ticker = document.getElementById('ticker');
+
+let tickerHtml = '';
+DATA.forEach((d, i) => { tickerHtml += `<div class="ticker-item"><em>${i+1}.</em> ${d.title}</div>`; });
+ticker.innerHTML = tickerHtml + tickerHtml;
+
+DATA.forEach((d, i) => {
+  const num = i + 1;
+  const id = 'e' + num;
+
+  navlinks.insertAdjacentHTML('beforeend', `<a href="#${id}" data-nav="${id}">${num}</a>`);
+
+  compareBody.insertAdjacentHTML('beforeend', `
+    <tr>
+      <td>${String(num).padStart(2,'0')}</td>
+      <td><a href="#${id}">${d.title}</a></td>
+      <td>${riskDots(d.riskTier)}</td>
+      <td class="tcell-hide-mobile">${d.horizon}</td>
+      <td>${d.budget}</td>
+    </tr>`);
+
+  const toolsHtml = d.tools.map(t => `
+    <div class="tool"><div class="tname">${t.n}</div><div class="tblurb">${t.b}</div></div>
+  `).join('');
+
+  const stepsHtml = d.steps.map(s => `<li>${s}</li>`).join('');
+
+  entriesRoot.insertAdjacentHTML('beforeend', `
+    <section class="entry${num % 2 === 0 ? ' tint' : ''}" id="${id}">
+      <div class="wrap">
+        <div class="entry-head">
+          <span class="entry-num">${num}</span>
+          <div class="entry-titles">
+            <h2>${d.title}</h2>
+            <p class="thesis">${d.thesis}</p>
+          </div>
+        </div>
+        <div class="meta-strip">
+          <div class="meta-block"><div class="meta-label">Riesgo</div><div class="meta-value">${riskDots(d.riskTier)} ${d.riskLabel}</div></div>
+          <div class="meta-block"><div class="meta-label">Horizonte</div><div class="meta-value">${d.horizon}</div></div>
+          <div class="meta-block"><div class="meta-label">Capital inicial</div><div class="meta-value">${d.budget}</div></div>
+        </div>
+        <div class="entry-body">
+          <h3 class="subhead">Por qué considerarlo</h3>
+          <p class="why-text">${d.why}</p>
+          <h3 class="subhead">Cómo empezar</h3>
+          <ol class="steps">${stepsHtml}</ol>
+          <h3 class="subhead">Herramientas recomendadas</h3>
+          <div class="tools-grid">${toolsHtml}</div>
+          <div class="first-step"><div class="fs-label">Primer paso, hoy</div><p>${d.firstStep}</p></div>
+        </div>
+      </div>
+    </section>
+  `);
+});
+
+// scroll progress
+function onScroll() {
+  const h = document.documentElement;
+  const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+  document.getElementById('progress').style.width = scrolled + '%';
+}
+document.addEventListener('scroll', onScroll, { passive: true });
+
+// active nav highlighting
+const sections = [document.getElementById('top'), ...DATA.map((d,i) => document.getElementById('e'+(i+1)))];
+const navA = () => document.querySelectorAll('#navlinks a');
+if ('IntersectionObserver' in window) {
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navA().forEach(a => a.classList.remove('active'));
+        const id = entry.target.id;
+        const link = document.querySelector(`#navlinks a[data-nav="${id}"]`);
+        if (link) link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  sections.forEach(s => s && obs.observe(s));
+}
+</script>
+</body>
+</html>
